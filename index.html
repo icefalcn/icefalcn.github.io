@@ -44,16 +44,16 @@
               </div>
               <div class="col-md-5 mb-3">
                 <label for="traillist">Trail</label>
-                <select class="custom-select d-block w-100" id="traillist" onchange="changeTrailss()>
-                  <option value="0">Cheakamus Lake Trailhead – ALL DAY - Person</option>
-                  <option value="1">Diamond Head Trailhead - ALL DAY - Person</option>
-                  <option value="2">Rubble Creek Trailhead - ALL DAY - Person</option>
+                <select class="custom-select d-block w-100" id="traillist" onchange="changeTrails()">
+                  <option value = '0'>Cheakamus Lake Trailhead – ALL DAY - Person</option>
+                  <option value = '1'>Diamond Head Trailhead - ALL DAY - Person</option>
+                  <option value = '2'>Rubble Creek Trailhead - ALL DAY - Person</option>
                 </select>
-                <div class="invalid-feedback">
+                <div class = 'invalid-feedback'>
                   Please select a trail.
                 </div>
               </div>
-              <div class="col-md-3 mb-3">
+              <div class = 'col-md-3 mb-3'>
                 <label for="numofpasses">Number of Passes</label>
                 <input type="number" class="form-control" id="numofpasses" value="1" min="1" required="">
                 <div class="invalid-feedback">
@@ -73,12 +73,12 @@
               <div>&emsp;&emsp;contentType: "application/json; charset=utf-8",</div>
               <div>&emsp;&emsp;dataType: "json",</div>
               <div>&emsp;&emsp;success: function(response){window.location.replace('https://discovercamping.ca/BCCWeb/Customers/ShoppingCart.aspx')}</div>
-              <div id="postDate">});}, new Date('<span id='checkoutDate'></span> 6:00:01') - new Date()); </div>                    
+              <div id="postDate">});}, new Date('<span id='checkoutDate'></span> 7:00:01') - new Date()); </div>                    
           </code>         
           </div>
           <h4 class="mb-3">Step 2</h4>
           <div>Go to <a href='https://discovercamping.ca/BCCWeb/Memberships/MembershipPasses.aspx ' target="_blank">The BC hiking pass reservation website </a></div>
-          <div>And sign in <span class="font-weight-bold">AFTER</span> 5:55 am</div>
+          <div>And sign in <span class="font-weight-bold">AFTER</span> 6:55 am</div>
           <br>
           <h4 class="mb-3">Step 3</h4>
           <div>Open developer tools on the BC hiking reservation site and paste the generated code into the console</div>
