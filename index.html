@@ -172,23 +172,15 @@
             }
         }
 
-        function changeTrailss(){
+        function changeTrails(){
             //clear trail options
-            var select = document.getElementById("traillist");
-            var length = select.options.length;
-            for (i = length-1; i >= 0; i--) {
-                select.options[i] = null;
+            var selectedTrail = document.getElementById("traillist").value;
+            if(value.includes('Vehicle')){
+                document.getElementById('numofpasses').value = 1;
+                document.getElementById('numofpasses').disabled = true;
             }
-            var e = document.getElementById("parklist");
-            var parknum = e.options[e.selectedIndex].value;
-            var select = document.getElementById("traillist"); 
-
-            for(var i = 0; i < trails[parknum].length; i++) {
-                let opt = trails[parknum][i];
-                let el = document.createElement("option");
-                el.textContent = opt.name;
-                el.value = i;
-                select.appendChild(el);
+            else if(value.includes('Person')){
+              document.getElementById('numofpasses').disabled = false;
             }
         }
 
