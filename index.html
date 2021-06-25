@@ -29,9 +29,10 @@
             <div class="row">
               <div class="col-md-4 mb-3">
                 <label for="parklist">Park</label>
-                <select class="custom-select d-block w-100" id="parklist" onchange="changeTrails()">
+                <select class="custom-select d-block w-100" id="parklist" onchange="changeParks()">
                   <option value="0">South Coast - Garibaldi Park</option>
                   <option value="1">South Coast - Golden Ears Park</option>
+                  <option value="4">South Coast - Joffre Lakes Park</option>
                   <option value="2">Northern - Mount Robson Park</option>
                   <option value="3">South Coast - Stawamus Chief Park</option>
                   <option value="4">South Coast - Mount Seymour Park</option>
@@ -43,7 +44,7 @@
               </div>
               <div class="col-md-5 mb-3">
                 <label for="traillist">Trail</label>
-                <select class="custom-select d-block w-100" id="traillist">
+                <select class="custom-select d-block w-100" id="traillist" onchange="changeTrailss()>
                   <option value="0">Cheakamus Lake Trailhead – ALL DAY - Person</option>
                   <option value="1">Diamond Head Trailhead - ALL DAY - Person</option>
                   <option value="2">Rubble Creek Trailhead - ALL DAY - Person</option>
@@ -114,25 +115,28 @@
     <script>
         var trails = [
             [
-                {name:'Cheakamus Lake Trailhead – ALL DAY - Person', membershipId:'1628', placeId:'41', passType:'2'},
-                {name:'Diamond Head Trailhead - ALL DAY - Person', membershipId:'1626', placeId:'41', passType:'2'},
-                {name:'Rubble Creek Trailhead - ALL DAY - Person', membershipId:'1627', placeId:'41', passType:'2'}
+                {name:'Diamond Head Trailhead - ALL DAY - Vehicle', membershipId:'1657', placeId:'41', passType:'2'},
+                {name:'Rubble Creek Trailhead - ALL DAY - Vehicle', membershipId:'1658', placeId:'41', passType:'2'}
             ],
             [
-                {name:'Alouette Lake Boat Launch Parking (Trailer ONLY) – AM - Vehicle', membershipId:'1634', placeId:'43', passType:'1'},
-                {name:'Alouette Lake Boat Launch Parking (Trailer ONLY) – PM - Vehicle', membershipId:'1635', placeId:'43', passType:'1'},
-                {name:'East/West Canyon Parking Lot – AM - Vehicle', membershipId:'1636', placeId:'43', passType:'1'},
-                {name:'East/West Canyon Parking Lot – PM - Vehicle', membershipId:'1637', placeId:'43', passType:'1'},
-                {name:'South Beach Parking Lot – AM - Vehicle', membershipId:'1632', placeId:'43', passType:'1'},
-                {name:'South Beach Parking Lot – PM - Vehicle', membershipId:'1633', placeId:'43', passType:'1'}
+                {name:'Alouette Lake (South beach) - AM PASS - Vehicle', membershipId:'1652', placeId:'43', passType:'1'},
+                {name:'Alouette Lake (South beach) - PM PASS - Vehicle', membershipId:'1653', placeId:'43', passType:'1'},
+                {name:'Boat launch - ALL DAY - Vehicle', membershipId:'1647', placeId:'43', passType:'1'},
+                {name:'East Canyon Trail, Lower Falls and Gold Creek - AM PASS - Vehicle', membershipId:'1648', placeId:'43', passType:'1'},
+                {name:'East Canyon Trail, Lower Falls and Gold Creek - PM PASS - Vehicle', membershipId:'1649', placeId:'43', passType:'1'},
+                {name:'West Canyon Trail Parking - AM PASS - Vehicle', membershipId:'1650', placeId:'43', passType:'1'},
+                {name:'West Canyon Trail Parking - PM PASS - Vehicle', membershipId:'1651', placeId:'43', passType:'1'}
             ],
             [
-                {name:'Berg Lake Trail – AM - Vehicle', membershipId:'1616', placeId:'87', passType:'2'},
-                {name:'Berg Lake Trail – PM - Vehicle', membershipId:'1617', placeId:'87', passType:'2'}
+                {name:'Joffre Lakes - ALL DAY - Person', membershipId:'1654', placeId:'54', passType:'2'}
             ],
             [
-                {name:'Chief Peaks Trail only – AM - Person', membershipId:'1630', placeId:'129', passType:'2'},
-                {name:'Chief Peaks Trail only – PM - Person', membershipId:'1631', placeId:'129', passType:'2'}
+                {name:'Berg Lake Trail – AM - Vehicle', membershipId:'1661', placeId:'87', passType:'2'},
+                {name:'Berg Lake Trail – PM - Vehicle', membershipId:'1662', placeId:'87', passType:'2'}
+            ],
+            [
+                {name:'Chief Peaks Trail only – AM - Person', membershipId:'1655', placeId:'129', passType:'2'},
+                {name:'Chief Peaks Trail only – PM - Person', membershipId:'1656', placeId:'129', passType:'2'}
             ],
             [
                 {name:'Upper Mountain Trails – AM - Person', membershipId:'1624', placeId:'156', passType:'2'},
@@ -148,7 +152,27 @@
             ]
         ];
 
-        function changeTrails(){
+        function changeParks(){
+            //clear trail options
+            var select = document.getElementById("traillist");
+            var length = select.options.length;
+            for (i = length-1; i >= 0; i--) {
+                select.options[i] = null;
+            }
+            var e = document.getElementById("parklist");
+            var parknum = e.options[e.selectedIndex].value;
+            var select = document.getElementById("traillist"); 
+
+            for(var i = 0; i < trails[parknum].length; i++) {
+                let opt = trails[parknum][i];
+                let el = document.createElement("option");
+                el.textContent = opt.name;
+                el.value = i;
+                select.appendChild(el);
+            }
+        }
+
+        function changeTrailss(){
             //clear trail options
             var select = document.getElementById("traillist");
             var length = select.options.length;
