@@ -45,9 +45,8 @@
               <div class="col-md-5 mb-3">
                 <label for="traillist">Trail</label>
                 <select class="custom-select d-block w-100" id="traillist" onchange="changeTrails()">
-                  <option value = '0'>Cheakamus Lake Trailhead – ALL DAY - Person</option>
-                  <option value = '1'>Diamond Head Trailhead - ALL DAY - Person</option>
-                  <option value = '2'>Rubble Creek Trailhead - ALL DAY - Person</option>
+                  <option value = '1'>Diamond Head Trailhead - ALL DAY - Vehicle</option>
+                  <option value = '2'>Rubble Creek Trailhead - ALL DAY - Vehicle</option>
                 </select>
                 <div class = 'invalid-feedback'>
                   Please select a trail.
@@ -55,7 +54,7 @@
               </div>
               <div class = 'col-md-3 mb-3'>
                 <label for="numofpasses">Number of Passes</label>
-                <input type="number" class="form-control" id="numofpasses" value="1" min="1" required="">
+                <input type="number" class="form-control" id="numofpasses" value="1" min="1" required="" disabled>
                 <div class="invalid-feedback">
                   Number of passes required.
                 </div>
@@ -170,11 +169,13 @@
                 el.value = i;
                 select.appendChild(el);
             }
+            changeTrails();
         }
 
         function changeTrails(){
             //clear trail options
-            var selectedTrail = document.getElementById("traillist").value;
+            var sel = document.getElementById("traillist");
+            var selectedTrail = sel.options[sel.selectedIndex].text;
             if(selectedTrail.includes('Vehicle')){
                 document.getElementById('numofpasses').value = 1;
                 document.getElementById('numofpasses').disabled = true;
