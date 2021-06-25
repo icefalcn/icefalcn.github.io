@@ -175,11 +175,11 @@
         function changeTrails(){
             //clear trail options
             var selectedTrail = document.getElementById("traillist").value;
-            if(value.includes('Vehicle')){
+            if(selectedTrail.includes('Vehicle')){
                 document.getElementById('numofpasses').value = 1;
                 document.getElementById('numofpasses').disabled = true;
             }
-            else if(value.includes('Person')){
+            else if(selectedTrail.includes('Person')){
               document.getElementById('numofpasses').disabled = false;
             }
         }
