@@ -44,9 +44,11 @@
               </div>
               <div class="col-md-5 mb-3">
                 <label for="traillist">Trail</label>
-                <select class="custom-select d-block w-100" id="traillist" onchange="changeTrails()">
-                  <option value = '0'>Diamond Head Trailhead - ALL DAY - Vehicle</option>
-                  <option value = '1'>Rubble Creek Trailhead - ALL DAY - Vehicle</option>
+                <select class="custom-select d-block w-100" id="traillist" onchange="changeTrails()">                  
+                  <option value = '0'>Cheakamus - AM PASS - Vehicle</option>
+                  <option value = '1'>Cheakamus - PM PASS - Vehicle</option>
+                  <option value = '2'>Diamond Head Trailhead - ALL DAY - Vehicle</option>
+                  <option value = '3'>Rubble Creek Trailhead - ALL DAY - Vehicle</option>
                 </select>
                 <div class = 'invalid-feedback'>
                   Please select a trail.
@@ -113,9 +115,11 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script>
         var trails = [
-            [
-                {name:'Diamond Head Trailhead - ALL DAY - Vehicle', membershipId:'1657', placeId:'41', passType:'2'},
-                {name:'Rubble Creek Trailhead - ALL DAY - Vehicle', membershipId:'1658', placeId:'41', passType:'2'}
+            [                
+                {name:'Cheakamus - AM PASS - Vehicle', membershipId:'1659', placeId:'41', passType:'1'},
+                {name:'Cheakamus - PM PASS - Vehicle', membershipId:'1660', placeId:'41', passType:'1'},
+                {name:'Diamond Head Trailhead - ALL DAY - Vehicle', membershipId:'1657', placeId:'41', passType:'1'},
+                {name:'Rubble Creek Trailhead - ALL DAY - Vehicle', membershipId:'1658', placeId:'41', passType:'1'}
             ],
             [
                 {name:'Alouette Lake (South beach) - AM PASS - Vehicle', membershipId:'1652', placeId:'43', passType:'1'},
@@ -127,27 +131,27 @@
                 {name:'West Canyon Trail Parking - PM PASS - Vehicle', membershipId:'1651', placeId:'43', passType:'1'}
             ],
             [
-                {name:'Joffre Lakes - ALL DAY - Person', membershipId:'1654', placeId:'54', passType:'2'}
+                {name:'Joffre Lakes - ALL DAY - Person', membershipId:'1654', placeId:'54', passType:'1'}
             ],
             [
-                {name:'Berg Lake Trail – AM - Vehicle', membershipId:'1661', placeId:'87', passType:'2'},
-                {name:'Berg Lake Trail – PM - Vehicle', membershipId:'1662', placeId:'87', passType:'2'}
+                {name:'Berg Lake Trail – AM - Vehicle', membershipId:'1661', placeId:'87', passType:'1'},
+                {name:'Berg Lake Trail – PM - Vehicle', membershipId:'1662', placeId:'87', passType:'1'}
             ],
             [
                 {name:'Chief Peaks Trail only – AM - Person', membershipId:'1655', placeId:'129', passType:'2'},
                 {name:'Chief Peaks Trail only – PM - Person', membershipId:'1656', placeId:'129', passType:'2'}
             ],
             [
-                {name:'Upper Mountain Trails – AM - Person', membershipId:'1624', placeId:'156', passType:'2'},
-                {name:'Upper Mountain Trails – PM - Person', membershipId:'1625', placeId:'156', passType:'2'}
+                {name:'Upper Mountain Trails – AM - Person', membershipId:'1624', placeId:'156', passType:'1'},
+                {name:'Upper Mountain Trails – PM - Person', membershipId:'1625', placeId:'156', passType:'1'}
             ],
             [
-                {name:'Black Mountain Plateau Trails – AM - Person', membershipId:'1622', placeId:'171', passType:'2'},
-                {name:'Black Mountain Plateau Trails – PM - Person', membershipId:'1623', placeId:'171', passType:'2'},
-                {name:'Hollyburn Trail – AM - Person', membershipId:'1620', placeId:'171', passType:'2'},
-                {name:'Hollyburn Trail – PM - Person', membershipId:'1621', placeId:'171', passType:'2'},
-                {name:'Howe Sound Crest Trail – AM - Person', membershipId:'1618', placeId:'171', passType:'2'},
-                {name:'Howe Sound Crest Trail – PM - Person', membershipId:'1619', placeId:'171', passType:'2'}
+                {name:'Black Mountain Plateau Trails – AM - Person', membershipId:'1622', placeId:'171', passType:'1'},
+                {name:'Black Mountain Plateau Trails – PM - Person', membershipId:'1623', placeId:'171', passType:'1'},
+                {name:'Hollyburn Trail – AM - Person', membershipId:'1620', placeId:'171', passType:'1'},
+                {name:'Hollyburn Trail – PM - Person', membershipId:'1621', placeId:'171', passType:'1'},
+                {name:'Howe Sound Crest Trail – AM - Person', membershipId:'1618', placeId:'171', passType:'1'},
+                {name:'Howe Sound Crest Trail – PM - Person', membershipId:'1619', placeId:'171', passType:'1'}
             ]
         ];
 
