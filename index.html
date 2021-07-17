@@ -63,19 +63,26 @@
               </div>
             </div>
             <button class="btn btn-primary btn-lg btn-block" type="submit">Generate code</button>
-            <div id="copiedSuccess">Copied to clipboard!</div>
           </form>
-          <div class="codeblock" id="generatedCode" style="display:none;">
-              <code>
-              <div>setTimeout(function(){ $.ajax({</div>
-              <div>&emsp;&emsp;type: "POST",</div>
-              <div>&emsp;&emsp;url: 'https://discovercamping.ca/BCCWeb/Memberships/MembershipPasses.aspx/MembershipAddToCart',</div>
-              <div id="postData">&emsp;&emsp;data: '{"data":{"membershipId":<span id="membershipId"></span>,"qty":<span id="passQty"></span>,"passType":<span id="passType"></span>,"placeId": <span id="passPlaceId"></span>}}',</div>
-              <div>&emsp;&emsp;contentType: "application/json; charset=utf-8",</div>
-              <div>&emsp;&emsp;dataType: "json",</div>
-              <div>&emsp;&emsp;success: function(response){window.location.replace('https://discovercamping.ca/BCCWeb/Customers/ShoppingCart.aspx')}</div>
-              <div id="postDate">});}, new Date('<span id='checkoutDate'></span> 7:00:01') - new Date()); </div>                    
-          </code>         
+          <div id="copiedNextPageSuccess" style="display:none;">Copied to clipboard!</div>
+          <div class="codeblock" id="generatedNextPageCode" style="display:none;">
+              <code onclick="copyNextPage()" style="cursor: pointer;">
+                <div>setTimeout(function(){ $.ajax({</div>
+                <div>&emsp;&emsp;$("#PassNextBtn").click();}, new Date('<span id='checkoutDate'></span> 7:00:00') - new Date()); </div>                    
+              </code>         
+          </div>
+          <div id="copiedGetPassSuccess" style="display:none;">Copied to clipboard!</div>
+          <div class="codeblock" id="generatedGetPassCode" style="display:none;">
+              <code onclick="copyGetPass()" style="cursor: pointer;">
+                <div>setTimeout(function(){ $.ajax({</div>
+                <div>&emsp;&emsp;type: "POST",</div>
+                <div>&emsp;&emsp;url: 'https://discovercamping.ca/BCCWeb/Memberships/MembershipPasses.aspx/MembershipAddToCart',</div>
+                <div id="postData">&emsp;&emsp;data: '{"data":{"membershipId":<span id="membershipId"></span>,"qty":<span id="passQty"></span>,"passType":<span id="passType"></span>,"placeId": <span id="passPlaceId"></span>}}',</div>
+                <div>&emsp;&emsp;contentType: "application/json; charset=utf-8",</div>
+                <div>&emsp;&emsp;dataType: "json",</div>
+                <div>&emsp;&emsp;success: function(response){window.location.replace('https://discovercamping.ca/BCCWeb/Customers/ShoppingCart.aspx')}</div>
+                <div id="postDate">});}, new Date('<span id='checkoutDate'></span> 7:00:01') - new Date()); </div>                    
+              </code>         
           </div>
           <h4 class="mb-3">Step 2</h4>
           <div>Go to <a href='https://discovercamping.ca/BCCWeb/Memberships/MembershipPasses.aspx ' target="_blank">The BC hiking pass reservation website </a></div>
@@ -131,7 +138,7 @@
                 {name:'West Canyon Trail Parking - PM PASS - Vehicle', membershipId:'1651', placeId:'43', passType:'1'}
             ],
             [
-                {name:'Joffre Lakes - ALL DAY - Person', membershipId:'1654', placeId:'54', passType:'1'}
+                {name:'Joffre Lakes - ALL DAY - Person', membershipId:'1654', placeId:'54', passType:'2'}
             ],
             [
                 {name:'Berg Lake Trail – AM - Vehicle', membershipId:'1661', placeId:'87', passType:'1'},
@@ -206,8 +213,21 @@
             document.getElementById('passType').textContent = passType;
             document.getElementById('passQty').textContent = passQty;
             document.getElementById('checkoutDate').textContent = checkoutDate;
-            
+
+            document.getElementById('generatedNextPageCode').style.display = 'block';
+            document.getElementById('generatedGetPassCode').style.display = 'block';
+        }
+
+        function copyNextPage() {            
             let code = 
+            `setTimeout(function(){ 
+$("#PassNextBtn").click();}, new Date('2021-07-16 21:05:00') - new Date());`
+            copyToClipboard(code)
+            document.getElementById('copiedNextPageSuccess').style.display = 'block';
+        }
+
+        function copyGetPass() {
+          let code = 
             `setTimeout(function(){ $.ajax({
   type: "POST",
   url: 'https://discovercamping.ca/BCCWeb/Memberships/MembershipPasses.aspx/MembershipAddToCart',
@@ -217,9 +237,7 @@
   success: function(response){window.location.replace('https://discovercamping.ca/BCCWeb/Customers/ShoppingCart.aspx')}
 });}, new Date('${checkoutDate} 7:00:01') - new Date());`
             copyToClipboard(code)
-
-            document.getElementById('copiedSuccess').style.display = 'block';
-            document.getElementById('generatedCode').style.display = 'block';
+            document.getElementById('copiedGetPassSuccess').style.display = 'block';
         }
 
         function copyToClipboard(text) {
